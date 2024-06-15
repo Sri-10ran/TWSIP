@@ -25,7 +25,7 @@ class ATM_gui {
 
     private static void place(JPanel p) {
         
-        Color button_color = new Color(0, 181, 239);  //#00B5EF is the common background color for the 4 buttons
+        Color button_color = new Color(0, 181, 239);  //#00B5EF is the common background color
         
    	JLabel acc_label = new JLabel("Account no:");
         acc_label.setForeground(Color.WHITE);          //Setting white color to the Account no , Pin no labels
