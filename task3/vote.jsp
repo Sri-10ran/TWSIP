@@ -26,26 +26,26 @@
             width: 90%;
             max-width: 1000px; /* Adjusted width */
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
-            backdrop-filter: blur(10px); /* Blurs the background behind the container */
-            -webkit-backdrop-filter: blur(10px); /* Blurs the background behind the container for Safari */
+            background: rgba(255, 255, 255, 0.2); 
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px); 
             border-radius: 15px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.3); /* Slightly transparent border */
+            border: 1px solid rgba(255, 255, 255, 0.3); 
             padding: 20px;
         }
         .section {
             padding: 20px;
-            color: #333; /* Text color for readability */
-            background: rgba(255, 255, 255, 0.7); /* Light background with transparency */
+            color: #333; 
+            background: rgba(255, 255, 255, 0.7); 
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for better distinction */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
         }
         .left {
-            background: cornflowerblue; /* Saffron with more opacity */
+            background: cornflowerblue; 
         }
         .right {
-            background: rgba(19, 136, 8, 0.9); /* Green with more opacity */
+            background: rgba(19, 136, 8, 0.9); 
         }
         .section h1 {
             margin-bottom: 20px;
@@ -54,64 +54,64 @@
         .profile-details {
             display: flex;
             flex-direction: column;
-            align-items: flex-start; /* Align text to left */
-            color: white; /* Darker text color for contrast */
-            font-size: 18.3px; /* Specific font size */
-            line-height: 1.8; /* Adjust line-height for readability */
+            align-items: flex-start; 
+            color: white; 
+            font-size: 18.3px; 
+            line-height: 1.8; 
             margin: 0;
             padding: 0;
             font-weight: 580;
         }
         .profile-details span {
-            margin-top: 4px; /* Add space between each line */
+            margin-top: 4px; 
         }
         .right button {
             display: inline-block;
             width: auto;
             padding: 10px 20px;
             margin: 0;
-            color: rgba(19, 136, 8, 0.9); /* Green text for contrast */
-            background-color: white; /* White background for buttons */
+            color: rgba(19, 136, 8, 0.9); 
+            background-color: white; 
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-weight: bold;
         }
         .right button:hover {
-            background-color: #f0f0f0; /* Slightly darker hover effect */
+            background-color: #f0f0f0; 
         }
         .rows {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin: 10px 0;
-            gap: 10px; /* Add gap between elements */
+            gap: 10px; 
         }
         .rows h2 {
             margin: 0;
             flex: 1;
         }
         .rows h2 pre {
-            display: inline; /* Ensure pre text is inline */
-            color: white; /* Ensure text color stands out */
-            margin: 0; /* Remove margin */
-            padding: 0; /* Remove padding */
+            display: inline; 
+            color: white; 
+            margin: 0; 
+            padding: 0; 
         }
         .rows mark {
-            background: white; /* Mark background */
-            color: rgba(19, 136, 8, 0.9); /* Green color for text */
+            background: white; 
+            color: rgba(19, 136, 8, 0.9);
             padding: 2px 4px;
             border-radius: 3px;
             font-weight: bold;
         }
-        @media (min-width: 800px) { /* Larger screen layout */
+        @media (min-width: 800px) 
             .page {
-                grid-template-columns: 1fr 1fr; /* Two-column layout */
-                align-items: start; /* Align items to the top */
+                grid-template-columns: 1fr 1fr; 
+                align-items: start; 
             }
             .left, .right {
-                border-radius: 10px; /* Consistent rounded corners */
-                height: auto; /* Adjust height for content */
+                border-radius: 10px; 
+                height: auto;
             }
         }
     </style>
