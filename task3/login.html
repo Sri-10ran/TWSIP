@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to bottom, #FF9933, white, #138808); 
+            font-family: "Poppins";
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 20px;
+            width: 350px;
+            border: 1px solid rgba(255, 255, 255, 0.3); 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+            position: relative;
+            z-index: 1;
+        }
+
+        .marquee {
+            overflow: hidden;
+            position: absolute;
+            width: 100%;
+            top: 10px; /* Adjusted for better positioning */
+            padding: 10px 0; /* Increased padding for visibility */
+            z-index: 2; /* Ensures marquee is above the form */
+        }
+
+        .marquee-content {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 15s linear infinite;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background: rgba(0, 0, 0, 0.8); 
+            padding: 10px;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        label {
+            text-align: left;
+            margin-bottom: 5px;
+            font-weight: 600;
+       
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid grey;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .signup-btn {
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            width:50%;
+            margin-bottom: 10px;
+            /*background: #138808;*/
+            letter-spacing: 0.4px;
+            background: #FF9933;
+            font-size: 15px;
+            font-weight: 550;
+            align-self: center;
+        }
+
+        .signup-btn:hover {
+            background: #45a049;
+        }
+
+        a {
+            color: #4285f4;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        #naming, #cells, #pass {
+            margin-top: -4px;
+        }
+
+     
+        @media (max-width: 400px) {
+            .form-container {
+                width: 90%;
+            }
+
+            .marquee-content {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="marquee">
+        <div class="marquee-content">Casting your vote is your right and national duty! Make your voice heard!</div>
+    </div>
+
+    <div class="form-container">
+        <form action="login.jsp" method="post">
+            <h2 style="text-align: center;">Login Form</h2>
+            
+            <label>Your name:</label>
+            <input type="text" id="name" onkeyup="names()" name="user_name" required>
+            <p id="naming"></p>
+
+            <label>Aadhar card no:</label>
+            <input type="password" id="aadhar" onkeyup="passing()" name="aadhar" required>
+            <p id="pass"></p>
+
+            <label>Mobile number:</label>
+            <input type="text" id="phone" onkeyup="mobiles()" name="mob_no" required>
+            <p id="cells"></p>
+
+            <button type="submit" class="signup-btn" >LOG IN</button>
+            <p style="font-size: 16px;color: blue;text-align: center;font-weight: 550;margin-top: -8px;"> <br>Your details should be as in Aadhar card.</p>
+        </form>
+    </div>
+
+    <script>
+        function names() {
+            var x = document.getElementById('name').value.trim();
+            if (x === "" || x.length < 3) {
+                document.getElementById('naming').innerText = "Name should be more than 3 letters";
+                document.getElementById('naming').style.color = "red";
+                document.getElementById('naming').style.fontSize = "14px";
+                document.getElementById('naming').style.fontWeight = "bold";
+            } else if (/[^a-zA-Z\s]/.test(x)) {
+                document.getElementById('naming').innerText = "Enter alphabets only";
+                document.getElementById('naming').style.color = "red";
+                document.getElementById('naming').style.fontSize = "14px";
+                document.getElementById('naming').style.fontWeight = "bold";
+            } else {
+                document.getElementById('naming').innerText = "Validated";
+                document.getElementById('naming').style.color = "green";
+                document.getElementById('naming').style.fontSize = "14px";
+                document.getElementById('naming').style.fontWeight = "bold";
+            }
+        }
+
+        function passing() {
+            var password = document.getElementById('aadhar').value.trim();
+            if (password.length !== 12) {
+                document.getElementById('pass').innerText = "Aadhar should be 12 numbers";
+                document.getElementById('pass').style.color = "red";
+                document.getElementById('pass').style.fontSize = "14px";
+                document.getElementById('pass').style.fontWeight = "bold";
+            } else if (/[^0-9]/.test(password)) {
+                document.getElementById('pass').innerText = "Enter numbers only";
+                document.getElementById('pass').style.color = "red";
+                document.getElementById('pass').style.fontSize = "14px";
+                document.getElementById('pass').style.fontWeight = "bold";
+            } else {
+                document.getElementById('pass').innerText = "Validated";
+                document.getElementById('pass').style.color = "green";
+                document.getElementById('pass').style.fontSize = "14px";
+                document.getElementById('pass').style.fontWeight = "bold";
+            }
+        }
+
+        function mobiles() {
+            var m = document.getElementById('phone').value.trim();
+            if (isNaN(m) || m === "") {
+                document.getElementById('cells').innerText = "Enter numbers only";
+                document.getElementById('cells').style.color = "red";
+                document.getElementById('cells').style.fontSize = "14px";
+                document.getElementById('cells').style.fontWeight = "bold";
+            } else if (m.length !== 10) {
+                document.getElementById('cells').innerText = "Enter exactly 10 numbers";
+                document.getElementById('cells').style.color = "red";
+                document.getElementById('cells').style.fontSize = "14px";
+                document.getElementById('cells').style.fontWeight = "bold";
+            } else {
+                document.getElementById('cells').innerText = "Validated";
+                document.getElementById('cells').style.color = "green";
+                document.getElementById('cells').style.fontSize = "14px";
+                document.getElementById('cells').style.fontWeight = "bold";
+            }
+        }
+
+        function final(event) {
+            event.preventDefault();  
+            var n = document.getElementById('name').value;
+            var p = document.getElementById('aadhar').value;
+            var m = document.getElementById('phone').value;
+
+            var namePattern = /^[A-Za-z\s]{3,}$/;
+            var phonePattern = /^\d{10}$/;
+            var passwordPattern = /^\d{12}$/;
+
+            if (namePattern.test(n) && phonePattern.test(m) && passwordPattern.test(p)) {
+                alert("Data collected successfully");
+            } else {
+                alert("Please fill all the fields correctly");
+            }
+        }
+    </script>
+</body>
+</html>
